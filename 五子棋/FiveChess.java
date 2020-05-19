@@ -348,8 +348,23 @@ public class FiveChess extends JPanel implements GoBangconfig{
 
 		  if(time.gettime()==0) {
 			  
-				if(turn==1) this.setPlayer(turn+1).reduce();
-				if(turn==2) this.setPlayer(turn-1).reduce();
+				if(turn==1) {
+					if(setPlayer(turn+1).getChance()>0)
+					this.setPlayer(turn+1).reduce();
+					else {
+						JOptionPane.showMessageDialog(null,"¹§Ï²ºÚÆå·½Ê¤Àû!");
+						restart();
+					}
+						
+				}
+				if(turn==2) {
+					if(setPlayer(turn-1).getChance()>0)
+						this.setPlayer(turn-1).reduce();
+						else {
+							JOptionPane.showMessageDialog(null,"¹§Ï²°×Æå·½Ê¤Àû!");
+							restart();
+						}
+				}
 				
 			}
 		
